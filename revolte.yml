@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
   project: Shipment Tracking App
-  appName: GeoLocator Service
+  appName: Shop ecom portal
   env:
     production:
       branch: main
@@ -37,7 +37,7 @@ revolte:
             memory: 4
             storage: 20
     staging:
-      branch: main
+      branch: staging
       services:
         rid_1:
           name: web-service
@@ -52,8 +52,8 @@ revolte:
             port: 8080
             variables:
               BASE_URL: /api/v1
-              DATABASE_URL: '#{db.dbConnectionString}'
               PORT: 8080
+              DATABASE_URL: '#{db.dbConnectionString}'
         rid_2:
           name: db
           type: DATABASE
