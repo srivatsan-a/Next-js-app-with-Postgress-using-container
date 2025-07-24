@@ -37,7 +37,7 @@ revolte:
             memory: 4
             storage: 20
     staging:
-      branch: staging
+      branch: main
       services:
         rid_1:
           name: web-service
@@ -48,7 +48,7 @@ revolte:
             memory: 2
             storage: 30
           properties:
-            health: /api/health
+            health: /health
             port: 8080
             variables:
               BASE_URL: /api/v1
