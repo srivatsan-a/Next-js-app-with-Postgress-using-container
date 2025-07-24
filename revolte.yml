@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: Shipment Tracking App
-  appName: Shop ecom portal
+  project: Demo
+  appName: Shopco
   env:
     production:
       branch: main
