@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: Demo
-  appName: test-app
+  project: Demo Ecommerce proj
+  appName: Portal application
   env:
     production:
       branch: main
@@ -37,7 +37,33 @@ revolte:
             memory: 4
             storage: 20
     staging:
-      branch: staging
+      branch: main
+      services:
+        rid_1:
+          name: web-service
+          type: WEB_SERVICE
+          entryPoint: index.js
+          specifications:
+            cpu: 2
+            memory: 2
+            storage: 30
+          properties:
+            health: /health
+            port: 8080
+            variables:
+              BASE_URL: /api/v1
+              PORT: 8080
+              DATABASE_URL: '#{db.dbConnectionString}'
+        rid_2:
+          name: db
+          type: DATABASE
+          specifications:
+            engine: postgres
+            cpu: 2
+            memory: 1
+            storage: 20
+    qa:
+      branch: qa
       services:
         rid_1:
           name: web-service
@@ -65,32 +91,6 @@ revolte:
             engine: postgres
             cpu: 2
             memory: 1
-            storage: 20
-    qa:
-      branch: qa
-      services:
-        rid_1:
-          name: web-service
-          type: WEB_SERVICE
-          entryPoint: index.js
-          specifications:
-            cpu: 2
-            memory: 2
-            storage: 30
-          properties:
-            health: /api/health
-            port: 8080
-            variables:
-              BASE_URL: /api/v1
-              PORT: 8080
-              DATABASE_URL: '#{db.dbConnectionString}'
-        rid_2:
-          name: db
-          type: DATABASE
-          specifications:
-            engine: postgres
-            cpu: 2
-            memory: 2
             storage: 20
     preview:
       services:
