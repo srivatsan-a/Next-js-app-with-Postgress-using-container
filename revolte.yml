@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: SaaS UKB
-  appName: Portal App
+  project: Demo Project ECOM
+  appName: Demo App Shopping Portal
   env:
     production:
       branch: main
